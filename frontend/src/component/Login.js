@@ -6,11 +6,12 @@ const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8001';
 
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:8001/login', {
+      const response = await axios.post(`${BASE_URL}/login`, {
         username,
         password,
       });
