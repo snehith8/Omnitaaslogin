@@ -4,7 +4,16 @@ const cors = require('cors');
 const app = express();
 const PORT = 8001;
 
-app.use(cors({ origin: 'http://localhost:3000' }));
+app.use(
+  cors({
+    origin: [
+      'http://localhost:3000',
+      'https://ominitaaslogin.netlify.app',
+    ],
+    methods: ['GET', 'POST'],
+    credentials: true,
+  }),
+);
 app.use(express.json());
 
 const VALID_CREDENTIALS = {
